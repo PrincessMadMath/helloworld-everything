@@ -1,3 +1,20 @@
-baseurl = "http://replace-this-with-your-hugo-site.com/"
 title = "My New Hugo Site"
+theme = "hugo-universal-theme"
 languageCode = "en-us"
+
+
+# Define the number of posts per page
+paginate = 10
+
+[Permalinks]
+    blog = "/blog/:year/:month/:day/:filename/"
+
+[[params.menu]]
+    name = "Blog"
+    url  = "/blog/"
+    weight = 2
+
+[params.recent_posts]
+    enable = true
+    title = "From our blog"
+    subtitle = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo."
