@@ -1,7 +1,7 @@
 title = "My New Hugo Site"
 theme = "hugo-universal-theme"
 languageCode = "en-us"
-baseurl = "https://princessmadmath.github.io/helloworld-everything/"
+baseurl = "http://helloworldeverything.com/"
 
 
 # Define the number of posts per page
