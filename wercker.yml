@@ -1,0 +1,8 @@
+box: debian
+build:
+    steps:
+        - arjen/hugo-build:
+            version: "0.17"
+            theme: hugo-universal-theme
+            flags: --buildDrafts=true
+
