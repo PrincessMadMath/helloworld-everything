@@ -10,6 +10,8 @@ paginate = 10
 
 googleAnalytics = "UA-58765047-2"
 
+PygmentsCodeFences = true
+
 
 [[params.menu]]
     name = "Home"
