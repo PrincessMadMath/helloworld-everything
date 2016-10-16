@@ -35,6 +35,11 @@ Here a list of what I hope you will be able to do after reading this article:
 
 ### Important concept
 
+#### Word to understand
+
+* cli: 
+  * command line interface
+
 #### Set-up (todo)
 
 Just an other javascript-package
@@ -49,10 +54,122 @@ Here what the stucture folder should look like:
 
 ![Initial directory structure: src, gulpfile.js, package.json](/img/blog/hello-gulp/initial_directory.PNG)
 
+```c
+|- src/
+    |- css/
+|- gulpfile.js
+|- package.json
+
+```
+
 #### Concep
 
-Let's look at the sample given by the [official documentation](https://www.npmjs.com/package/gulp-4.0.build)
+[Source code](https://github.com/PrincessMadMath/hwe_gulp-introduction/tree/1_Copying)
 
+gulpfile.js:
+
+```js
+/* 1: Import required module for our task: all gulp-plugin necessary will be added here */
+var gulp = require('gulp');
+
+/* 2: Defines globs to target specic files type */
+var paths = {
+  scripts: ['src/js/**/*.js', '!src/external/**/*.js'],
+};
+ 
+/****** Register some tasks to expose to the cli ******/
+
+// 3-1: We can call this task writing: gulp build
+gulp.task('build',  scripts);
+
+// 3-2: We can call using: gulp watch
+gulp.task(watch);
+ 
+// 4: The default task, we can call using: gulp
+gulp.task('default', gulp.series('build', watch));
+ 
+ 
+/****** Define our tasks using plain functions ******/
+ 
+// 5: Copying all JavaScript (except vendor scripts) into "build/js"
+function scripts() {
+  return gulp.src(paths.scripts)
+    .pipe(gulp.dest('build/js'));
+}
+ 
+// 6: Re-run the task when a file changes 
+function watch() {
+  gulp.watch(paths.scripts, scripts);
+}
+```
+
+### 1. Import
+
+Working with gulp imply using many plugins: one to minify, an other to compile sass and so on. To be able to use them we need to import them in the gulpfile.
+
+Here it my current workflow to use a new plugin.  
+1. Know what I want
+2. Find a plugin that does what I want (using the [official pluggins registry](http://gulpjs.com/plugins/) or any search engine)
+3. Install the pluggins to the dev dependencies (production don't need to perform gulp task)
+```cli
+npm install [pluginName] --save-dev
+```
+4. Add it in the gulpfile.js
+```js
+var relevantName = require("pluginName");
+```
+
+
+### 2. Node Glob: why and How
+
+As you know by now, gulp is all about taking files and do some work with it. So, it is important to have an easy way to specified which files we want to operate on.
+Here come glob, a matching pattern make for files and easier to use than regex.
+
+(todo complete)
+
+### 3. Basic task
+
+### 4. Task sequence
+
+### 5. Simple task
+
+### 6. Simple watch
+
+
+
+
+## Learning-project
+
+We (you and I) will build a simple project to show some useful capacity of gulp and its pluggins.
+For some parts I will write every steps and other parts I will give directive for you to try. 
+At the end of everystep, I will provided a link to the code source of how I implemented it.   
+
+What the project will do:  
+* Compile sass into css and minify them
+* Minify and concat javascript file
+* Live-reload: when we will change a html, css or js files the browser will automaticly reload and show the changes
+
+### 1. Simply copying file
+
+Using your knowledge to setup and and how implement simple task and watch, implements a gulpfile able to:  
+* Copying javascript from src/js -> build/js 
+* Copying css file from src/css -> build/css
+* Copying images from src/img -> build/img
+* On "gulp watch", watcher should copy files when one is updated or a newer one is add 
+* On "gulp build", should clean build/ and copy js, css and images
+
+[My solution here (todo)](https://github.com/PrincessMadMath/hwe_gulp-introduction/tree/1_Copying)
+
+
+### 2. Minify everything!
+
+Ok now you are a pro of moving files and watch some. Now we want to minify everything so it can be production ready. 
+Your job (if you accept it) is to meet the following criteria:
+* Uglify then concat all javascript files
+* Minify css
+* Compress imagemin
+
+(todo: change)
 ```js
 var gulp = require('gulp');
 var concat = require('gulp-concat');
@@ -111,11 +228,33 @@ function watch() {
 
 ```
 
+### 3. Small improvement and changes
 
-## Application exemple
+You may have notice that we do a lots of unecessary work about images: 1 image change/was added -> re-optimize everything!  
+We can use the gulp-cache pluggin to solve this problem: now check this [pluggin](https://www.npmjs.com/package/gulp-cached/) and implement it!
+
+Also you may have heard about sass, scrap the css and now use sass!
+
+
+[My solution](#)
+
+
+### 4. Live-reload
+
+We have almost a complete automatic process, we just want to stop hitting refresh when we make change. We want gulp to update that automatically for us.
+We are in luck there is a useful module compatible with gulp for that: [Browsersync](https://www.browsersync.io/docs/gulp).
+I found it harder to implement this one, so I will go step by step.
+
 
 
 ## Gulp starter pack
+
+Knowing all we know now, I decide to look into bit more into good practices with gulp so I can create a starter-pack that can boost the start of futur static web-site.
+
+What other tools we could want:  
+* Source-mapping
+* Linting
+(todo)
 
 
 ## Annex A: Questions I asked myself.
@@ -131,6 +270,9 @@ First you can look at other task runner:
 
 
 Then you can ask yourself if we can do thing differently: here come bundlers.
+
+
+### I saw there is multiple way we can use watcher, can you tell me more about them.
 
 ### What about npm, packages and modules?
 
@@ -152,4 +294,10 @@ Everything whithin require() is a module. A module is a single js file exposing 
 ## Annex B: Sources
 
 [Source code of Gulp](https://github.com/gulpjs/gulp)
+[Official code sample][official documentation](https://www.npmjs.com/package/gulp-4.0.build)
 [Official documentation](https://github.com/gulpjs/gulp/blob/master/docs/README.md)
+
+
+## For me later
+
+[Impact of minification](http://www.yottaa.com/company/blog/application-optimization/how-does-reducing-javascript-requests-minifying-javascript/)
