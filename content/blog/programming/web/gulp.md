@@ -111,7 +111,7 @@ Here it my current workflow to use a new plugin.
 1. Know what I want
 2. Find a plugin that does what I want (using the [official pluggins registry](http://gulpjs.com/plugins/) or any search engine)
 3. Install the pluggins to the dev dependencies (production don't need to perform gulp task)
-```cli
+```
 npm install [pluginName] --save-dev
 ```
 4. Add it in the gulpfile.js
