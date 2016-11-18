@@ -1,35 +1,108 @@
+############## Base config  ##############
+
 baseurl = "http://helloworldeverything.com/"
 title = "Hello World Everything"
-theme = "hugo-universal-theme"
+description = "Blog d'introduction à un peu de tout (lire ici chose aléatoire)"
+
+theme = "hugo-tranquilpeak-theme"
 languageCode = "en-us"
-
-
-
-# Define the number of posts per page
-paginate = 10
-
 googleAnalytics = "UA-58765047-2"
+Paginate = 7
+canonifyurls = true
+
+[permalinks]
+  post = "/:year/:month/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"
+
+############## Config syntax highlight ##############
 
 PygmentsCodeFences = true
+pygmentsstyle = "native"
 
 
-[[params.menu]]
-    name = "Home"
-    url  = "/"
-    weight = 1
+##############  About author ############## 
+[author]
+  name = "Mathieu Gamache"
+  bio = "Ingénieur logicielle, amoureux de donjon et dragon et joueur de magic the gathering"
+  job = "Étudiant en génie logicielle "
+  location = "Québec"
+  picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
 
-[[params.menu]]
-    name = "Blog"
-    url  = "/blog/"
-    weight = 2
+[params]
+  keywords = ["mathieu", "gamache", "hello world"]
+  sidebar_behavior = 1
+  clear_reading = true
+  thumbnail_image = true
+  thumbnail_image_position = "right"
+  auto_thumbnail_image = true
+  cover_image = "background.jpg"
+  favicon = "favicon.ico"
+  image_gallery = true
+  archive_pagination = true
+  category_pagination = true
+  tag_pagination = true
+  hierarchical_categories = true
 
-# Enable and disable widgets for the right sidebar
-[params.widgets]
-    categories = true
-    tags = true
-    search = true
+[params.header.right_link]
+  class = "open-algolia-search"
+  icon = "search"
+  url = "/#search"
 
-[params.recent_posts]
-    enable = true
-    title = "Say hello to my posts"
-    subtitle = "."
+
+############## Menu Configuration ##############
+[[menu.main]]
+  weight = 0
+  identifier = "home"
+  name = "Home"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
+  url = "/"
+[[menu.main]]
+  weight = 1
+  identifier = "categories"
+  name = "Categories"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-bookmark\"></i>"
+  url = "/categories"
+[[menu.main]]
+  weight = 2
+  identifier = "tags"
+  name = "Tags"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
+  url = "/tags"
+[[menu.main]]
+  weight = 3
+  identifier = "archives"
+  name = "Archives"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
+  url = "/archives"
+[[menu.main]]
+  weight = 4
+  identifier = "search"
+  name = "Search"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-search\"></i>"
+  url = "/#search"
+  class = "st-search-show-outputs"
+[[menu.main]]
+  weight = 4
+  identifier = "about"
+  name = "About"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
+  url = "/#about"
+
+[[menu.links]]
+  weight = 0
+  identifier = "github"
+  name = "GitHub"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
+  url = "https://github.com/PrincessMadMath"
+
+[[menu.misc]]
+  weight = 0
+  identifier = "rss"
+  name = "RSS"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
+  url = "/index.xml"
+
