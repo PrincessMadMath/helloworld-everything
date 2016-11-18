@@ -1,10 +1,14 @@
 +++
+title = "Step by step automatization with gulp"
 tags = ["tools", "web", "automation"]
 categories = ["programming", "web", "practice"]
 date = "2016-10-17T18:11:44-04:00"
-title = "Simple Gulp Practice"
-
 +++
+
+Hands-on, multi-step exercise to discover gulp. How to automate multiple aspect of a static web page using gulp.
+
+<!--more--> 
+
 
 ## Overview
 
