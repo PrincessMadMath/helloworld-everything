@@ -244,10 +244,10 @@ id de Disqus il doit utiliser.
 
 Puisque le Markdown ne supporte par tout les fonctionnalités qu'on voudrait, Hugo offre la possibilité de créer des snippets de code qui va être utilisé lorsqu'il va générer l'affichage.
 
-Hugo offre plusieurs shortcode déjà intégré:
+Hugo offre plusieurs shortcode déjà intégré: il suffit de placer ces codes ci-dessous à l'intérieur de {{}}
 
-* Un tweet de tweeter : `{{< tweet id_tweet >}}`
-* Vidéo youtube: `{{< youtube id_vidéo >}}`
+* Un tweet de tweeter : < tweet id_tweet >
+* Vidéo youtube: < youtube id_vidéo >
 * ...
 
 ### Utiliser un shortcodes
