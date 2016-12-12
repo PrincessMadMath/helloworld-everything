@@ -117,7 +117,7 @@ sont rarement le parfait résumé qu'on en ferais. Heureusement, il est possible
 
 Il suffit d'ajouter le résumé à la fin du Front Matter et lorsqu'on a finit de l'écrire on ajoute: `<!--more-->`
 
-```md
+~~~markup
 ---
 title : "Legit post"
 tags : ["serious", "potato", "pls take me au sérieux"] 
@@ -131,7 +131,7 @@ Résumé du post: bla bla bla bla potato bla bla bla bla
 
 Reste du texte
 [...]
-```
+~~~
 
 
 ## Archetype
@@ -154,9 +154,9 @@ Bref.... il permet de déclarer les variables de front matter par défaut pour u
 
 Il suffit d'utiliser la commande new de hugo:
 
-```Io
-$ hugo new [type conteny]/[path]/my-new-content.md
-```
+~~~bash
+hugo new [type conteny]/[path]/my-new-content.md
+~~~
 
 
 # Les thèmes
@@ -171,24 +171,24 @@ Un des plus grand problème est qu'il y a telement de [choix](http://themes.gohu
 
 1. Télécharger le thème désiré
 
-```Io
-$ cd themes
-$ git clone URL_TO_THEME
-```
+~~~bash
+cd themes
+git clone URL_TO_THEME
+~~~
 
 2. Indiquer à Hugo quel thème utilisé (puisqu'on peut en télécharger plusieurs)
 
 * On peut utiliser la ligne de commande
 
-```Io
-$ hugo -t ThemeName
-```
+~~~bash
+hugo -t ThemeName
+~~~
 
 * Ou le set nous même dans le fichier config
 
-```
+~~~yaml
 theme: "ThemeName"
-```
+~~~
 
 
 ## Tweek le thème
@@ -201,15 +201,15 @@ Hugo va d'abord sélectionner le notre.
 
 Par exemple:
 
-```
+~~~
 /layouts/_default/single.html
-```
+~~~
 
 Va remplacer:
 
-```
+~~~
 /themes/themename/layouts/_default/single.html
-```
+~~~
 
 
 # Template
@@ -235,10 +235,61 @@ Pour les utilisations plus avancés et les configurations plus poussés.
 
 ## Comments
 
+Il est fort probable qu'on désire pouvoir offrir la chance aux lecteurs d'écrire leur commentaire constructif, heureusement pour combler le problème qu'on n'a pas de backend
+Hugo est compatible avec [Disqus](https://disqus.com/) un service externe qui ajoute la fonctionnalités de commenter. Il suffit de s'inscrire et d'ajouter au Front Matter quel
+id de Disqus il doit utiliser.
+
+
 ## Shortcodes
 
-## Table of contents
+Puisque le Markdown ne supporte par tout les fonctionnalités qu'on voudrait, Hugo offre la possibilité de créer des snippets de code qui va être utilisé lorsqu'il va générer l'affichage.
 
+Hugo offre plusieurs shortcode déjà intégré:
+
+* Un tweet de tweeter : `{{< tweet id_tweet >}}`
+* Vidéo youtube: `{{< youtube id_vidéo >}}`
+* ...
+
+### Utiliser un shortcodes
+
+Supposons qu'on veut utiliser la shortcode AwsomeShortcode avec les paramètres param1 et param2 dans notre .md on va écrire:
+
+~~~markdown
+{{</* AwsomeShortcode param1 param2 */>}} 
+Autre contenu
+{{</* /AwsomeShortcode */>}}
+~~~
+
+
+Ou bien si les paramètres ont des noms (par exemple nom et titre):
+
+~~~markdown
+{{</* AwsomeShortcode nom="param1" titre="param2" */>}}
+Autre contenu
+{{</* /AwsomeShortcode */>}}
+~~~
+
+Ps: Il est possible d'indiquer que notre contenu soit quand même traité avec Markdown avant d'être passé au shortcode: il suffit de changer `<` et `>` par `%`
+
+### Écrire un shortcodes
+
+On écrit un fichier .html placé dans layout/shortcodes. Bien qu'il s'agit d'un simple fichier html il est possible d'accéder à différents types de variables et même d'ajouter un peu de logique 
+(par exemple si la variable X a été énoncé mettre une bordure avec la couleur de X): ce qui est à l'intérieur de `{{}}` va être interpréter par Hugo.
+
+On peut accéder à plusieurs variables:
+* Les paramètres
+** Par numéro selon ordre déclaration: `{{ .Get 0}}`
+** Par nom `{{ .Get "titre" }}`
+* [Varibles de la page](https://gohugo.io/templates/variables/)
+** Avec : `{{ .Page.[variable name] }}`
+* Et le contenu déclarer à l'intérieur du shortcodes
+** Avec : `{{ .Inner }}`
+
+
+## Table des matières
+
+Une des fonctionnalités de Hugo que j'ai découvert un peu plus tard et qui m'aurait épargné du travail est que Hugo est capable de détecter les titres et sous-titres d'un post
+et de généré la table des matières. Si on écrit un template il faut indiquer qu'on utilise la variable `.TableOfContents`
 
 ## Markdown
 

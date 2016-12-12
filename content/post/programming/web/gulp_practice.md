@@ -28,10 +28,16 @@ Just an other javascript-package
 
 1. Download this [source code]()
 2. Install gulp-cli globally  
-npm install gulpjs/gulp-cli -g
-3. In the repository install all npm module  
-npm install 
 
+~~~bash
+npm install gulpjs/gulp-cli -g
+~~~
+
+3. In the repository install all npm module  
+
+~~~bash
+npm install 
+~~~
 
 ## Learning-project
 
@@ -63,7 +69,8 @@ Your job (if you accept it) is to meet the following criteria:
 * Compress imagemin
 
 (todo: change)
-```js
+
+~~~javascript
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -119,7 +126,7 @@ function watch() {
   gulp.watch(paths.images, images);
 }
 
-```
+~~~
 
 ### 3. Small improvement and changes
 
