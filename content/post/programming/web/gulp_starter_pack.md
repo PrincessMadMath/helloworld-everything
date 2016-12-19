@@ -764,7 +764,7 @@ Then you can ask yourself if we can do things differently: here come bundlers.
 
 The purpose of npm is to shared small block of code solving a problem (called package).
 
-> OK but what consists of a package?_ 
+> FMORR: OK but what consists of a package?_ 
 
 Well, it is simple a directory where you find a package.json file.
 
@@ -772,7 +772,7 @@ Well, it is simple a directory where you find a package.json file.
 
 It can add new available command for the command line (like gulp) or export method that you can use in you js file.  
 
-> OK last question! What is the difference between a module and a package?_
+> FMORR: OK last question! What is the difference between a module and a package?_
 
 Everything within require() is a module. A module is a single js file exposing multiple function that we can use (look for the **exports** keyword). A package can contain multiple modules and depend on other packages and contains an entry point (often index.js) that is use in the require().
 
