@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hello World Everything</title>
+    <link>http://helloworldeverything.com/categories/practice/index.xml</link>
+    <description>Recent content on Hello World Everything</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://helloworldeverything.com/categories/practice/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Step by step automatization with gulp</title>
+      <link>http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/</link>
+      <pubDate>Mon, 17 Oct 2016 18:11:44 -0400</pubDate>
+      
+      <guid>http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/</guid>
+      <description>&lt;p&gt;Hands-on, multi-step exercise to discover gulp. How to automate multiple aspect of a static web page using gulp.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;Simple step-by-step to automate the process of a static web page with gulp.&lt;/p&gt;
+
+&lt;h3 id=&#34;goal-of-this-post&#34;&gt;Goal of this post&lt;/h3&gt;
+
+&lt;p&gt;Often after reading a let&amp;rsquo;s get started about a tech, I find my self not sure where to start applying what I learned.
+So here is something to get your teeth start on!&lt;/p&gt;
+
+&lt;h4 id=&#34;set-up-todo&#34;&gt;Set-up (todo)&lt;/h4&gt;
+
+&lt;p&gt;Just an other javascript-package&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download this [source code]()&lt;/li&gt;
+&lt;li&gt;Install gulp-cli globally&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install gulpjs/gulp-cli -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;In the repository install all npm module&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;learning-project&#34;&gt;Learning-project&lt;/h2&gt;
+
+&lt;p&gt;We (you and I) will build a simple project to show some useful capacity of gulp and its pluggins.
+For some parts I will write every steps and other parts I will give directive for you to try.
+At the end of everystep, I will provided a link to the code source of how I implemented it.&lt;/p&gt;
+
+&lt;p&gt;What the project will do:&lt;br /&gt;
+* Compile sass into css and minify them
+* Minify and concat javascript file
+* Live-reload: when we will change a html, css or js files the browser will automaticly reload and show the changes&lt;/p&gt;
+
+&lt;h3 id=&#34;1-simply-copying-file&#34;&gt;1. Simply copying file&lt;/h3&gt;
+
+&lt;p&gt;Using your knowledge to setup and and how implement simple task and watch, implements a gulpfile able to:&lt;br /&gt;
+* Copying javascript from src/js -&amp;gt; build/js
+* Copying images from src/img -&amp;gt; build/img
+* On &amp;ldquo;gulp watch&amp;rdquo;, watcher should copy files when one is updated or a newer one is add
+* On &amp;ldquo;gulp build&amp;rdquo;, should clean build/ then copy js and images&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/PrincessMadMath/hwe_gulp-introduction/tree/1_Copying&#34;&gt;My solution here (todo)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-minify-everything&#34;&gt;2. Minify everything!&lt;/h3&gt;
+
+&lt;p&gt;Ok now you are a pro of moving files and watch some. Now we want to minify everything so it can be production ready.
+Your job (if you accept it) is to meet the following criteria:
+* Uglify then concat all javascript files
+* Compress imagemin&lt;/p&gt;
+
+&lt;p&gt;(todo: change)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var gulp = require(&#39;gulp&#39;);
+var concat = require(&#39;gulp-concat&#39;);
+var uglify = require(&#39;gulp-uglify&#39;);
+var imagemin = require(&#39;gulp-imagemin&#39;);
+var del = require(&#39;del&#39;);
+
+/* Defines globs to target specic files type */
+var paths = {
+  scripts: [&#39;src/js/**/*.js&#39;, &#39;!src/external/**/*.js&#39;],
+  images: &#39;src/img/**/*&#39;
+};
+ 
+/* Register some tasks to expose to the cli */
+gulp.task(&#39;build&#39;, gulp.series(
+                      clean,
+                      gulp.parallel(scripts, images)
+                    ));
+gulp.task(clean);
+gulp.task(watch);
+ 
+// The default task (called when you run `gulp` from cli) 
+// Will build then watch for changes
+gulp.task(&#39;default&#39;, gulp.series(&#39;build&#39;, watch));
+ 
+ 
+/* Define our tasks using plain functions */
+ 
+// Will delete the directory name build
+function clean() {
+  // Return a promise: (gulp required that the function return a promise, a stream or alternatively take a call back and call it)
+  return del([&#39;build&#39;]);
+}
+ 
+// Take all images find in paths.images, minify them and save each of them in &amp;quot;build/img&amp;quot; (initial one doesn&#39;t change)
+function images() {
+  return gulp.src(paths.images)
+    // imagemin is the module required at the beginning of the files, some module can take option
+    .pipe(imagemin({optimizationLevel: 5}))
+    .pipe(gulp.dest(&#39;build/img&#39;));
+}
+ 
+// Minify all JavaScript (except vendor scripts) and save the concatanate result in &amp;quot;build/js&amp;quot;
+function scripts() {
+  return gulp.src(paths.scripts)
+    .pipe(uglify())
+    .pipe(concat(&#39;all.min.js&#39;))
+    .pipe(gulp.dest(&#39;build/js&#39;));
+}
+ 
+// Rerun the task when a file changes 
+function watch() {
+  gulp.watch(paths.scripts, scripts);
+  gulp.watch(paths.images, images);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-small-improvement-and-changes&#34;&gt;3. Small improvement and changes&lt;/h3&gt;
+
+&lt;p&gt;You may have notice that we do a lots of unecessary work about images: 1 image change/was added -&amp;gt; re-optimize everything!&lt;br /&gt;
+We can use the gulp-cache pluggin to solve this problem: now check this &lt;a href=&#34;https://www.npmjs.com/package/gulp-cached/&#34;&gt;pluggin&lt;/a&gt; and implement it!&lt;/p&gt;
+
+&lt;p&gt;Also you may have heard about sass, scrap the css and now use sass!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;#&#34;&gt;My solution&lt;/a&gt; (update)&lt;/p&gt;
+
+&lt;h3 id=&#34;4-live-reload&#34;&gt;4. Live-reload&lt;/h3&gt;
+
+&lt;p&gt;We have almost a complete automatic process, we just want to stop hitting refresh when we make change. We want gulp to update that automatically for us.
+We are in luck there is a useful module compatible with gulp for that: &lt;a href=&#34;https://www.browsersync.io/docs/gulp&#34;&gt;Browsersync&lt;/a&gt;.
+I found it harder to implement this one, so I will go step by step.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

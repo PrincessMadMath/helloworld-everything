@@ -1,0 +1,1449 @@
+
+
+  
+    
+  
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.17">
+    <title>Gulp starter pack</title>
+    <meta name="author" content="Mathieu Gamache">
+    <meta name="keywords" content=", mathieu, gamache, hello world">
+
+    <link rel="icon" href="http://helloworldeverything.com/favicon.png">
+    
+
+    
+    <meta name="description" content="Simple starter pack for a static web site using the task-runner gulp (with focus on good practice). Use lots of sweet gulp plugin to make the development easier.
+
+">
+    <meta property="og:description" content="Simple starter pack for a static web site using the task-runner gulp (with focus on good practice). Use lots of sweet gulp plugin to make the development easier.
+
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Gulp starter pack">
+    <meta property="og:url" content="/2016/10/gulp-starter-pack/">
+    <meta property="og:site_name" content="Hello World Everything">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hello World Everything">
+    <meta name="twitter:description" content="Simple starter pack for a static web site using the task-runner gulp (with focus on good practice). Use lots of sweet gulp plugin to make the development easier.
+
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="http://helloworldeverything.com/css/style-zfzvxnwixwz6qe7xv3xz1eyvlzc7cdfoxrgduk75zpqxib0hatbphiq9sddx.min.css" />
+    
+    
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58765047-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://helloworldeverything.com/">Hello World Everything</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="http://helloworldeverything.com/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+
+  <link href="http://helloworldeverything.com/css/prism.css" rel="stylesheet" />
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://helloworldeverything.com/#about">
+          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author's picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Mathieu Gamache</h4>
+        
+          <h5 class="sidebar-profile-bio">Ingénieur logicielle, amoureux de donjon et dragon et joueur de magic the gathering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="http://helloworldeverything.com/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/PrincessMadMath" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Gulp starter pack
+    </h1>
+  
+  <div class="post-meta">
+  <time itemprop="datePublished" datetime="2016-10-14T00:00:00Z">
+    Oct 14, 2016
+  </time>
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://helloworldeverything.com/categories/programming">programming</a>, 
+    
+      <a class="category-link" href="http://helloworldeverything.com/categories/web">web</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Simple starter pack for a static web site using the task-runner gulp (with focus on good practice). Use lots of sweet gulp plugin to make the development easier.</p>
+
+<p></p>
+
+<h1 id="overview">Overview</h1>
+
+<p>In the series of creating a starter pack for a static web site.</p>
+
+<h1 id="table-of-contents">Table of Contents</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#overview">Overview</a>
+<ul>
+<li><a href="#goal-of-this-post">Goal of this post</a></li>
+<li><a href="#problem-gulp-is-tacking">Problem Gulp is tacking</a></li>
+</ul></li>
+<li><a href="#important-concept">Important concept</a>
+<ul>
+<li><a href="#1-import">1. Import</a></li>
+<li><a href="#2-node-glob-why-and-how">2. Node Glob: why and How</a></li>
+<li><a href="#3-tasks">3. Tasks</a>
+<ul>
+<li><a href="#3-1-running-tasks">3.1 Running Tasks</a></li>
+<li><a href="#3-2-tasks-sequence">3.2 Tasks sequence</a></li>
+<li><a href="#3-3-task-implementation">3.3 Task implementation</a></li>
+</ul></li>
+<li><a href="#4-watch">4. Watch</a></li>
+</ul></li>
+<li><a href="#gulp-starter-pack">Gulp starter pack</a>
+<ul>
+<li><a href="#plugins">Plugins</a></li>
+<li><a href="#config-file-explication">Config file explication</a></li>
+<li><a href="#task-file-explication">Task file explication</a></li>
+</ul></li>
+<li><a href="#annex-a-questions-i-asked-myself">Annex A: Questions I asked myself.</a>
+<ul>
+<li><a href="#how-does-it-work-behind-the-scenes">How does it work behind the scenes?</a></li>
+<li><a href="#what-are-the-alternatives-of-gulp">What are the alternatives of gulp?</a></li>
+<li><a href="#i-saw-there-is-multiple-way-we-can-use-watchers-can-you-tell-me-more-about-them">I saw there is multiple way we can use watchers, can you tell me more about them.</a></li>
+<li><a href="#what-about-npm-packages-and-modules">What about npm, packages and modules?</a></li>
+</ul></li>
+<li><a href="#annex-b-sources">Annex B: Sources</a></li>
+</ul>
+</nav>
+
+<h2 id="goal-of-this-post">Goal of this post</h2>
+
+<p>Here a list of what I hope you will be able to do after reading this article:</p>
+
+<ul>
+<li>Explain why task runners are useful</li>
+<li>Understand core concept of Gulp 4.^</li>
+<li>Understand the starter project using gulp</li>
+</ul>
+
+<h2 id="problem-gulp-is-tacking">Problem Gulp is tacking</h2>
+
+<h1 id="important-concept">Important concept</h1>
+
+<p>Word to understand</p>
+
+<ul>
+<li>cli:</li>
+<li>command line interface</li>
+</ul>
+
+<p>Set-up</p>
+
+<p>The easiest set-up instruction is found on the <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">official documentation</a></p>
+
+<p>But because I used Gulp 4 and it is not released you need to replace</p>
+
+<pre><code class="language-bash">npm install --save-dev gulp 
+</code></pre>
+
+<p>by</p>
+
+<pre><code class="language-bash">npm install gulpjs/gulp.git#4.0  --save-dev 
+</code></pre>
+
+<p>Otherwise a good introduction between the difference of gulp 3 and gulp 4, can be found in this <a href="https://www.joezimjs.com/javascript/complete-guide-upgrading-gulp-4/">guide</a></p>
+
+<p><a href="https://github.com/PrincessMadMath/hwe_gulp-introduction/tree/1_Copying">Source code</a></p>
+
+<p>Let&rsquo;s take this following example and analyze it lines by lines:</p>
+
+<p>gulpfile.js:</p>
+
+<pre><code class="language-javascript">
+/* 1: Import required modules for our task: all gulp-plugin necessary will be added here */ 
+var gulp = require('gulp');
+
+/* 2: Defines globs to target specific files type */ 
+var paths = {   scripts: ['src/js/**/*.js', '!src/external/**/*.js'], };
+
+/****** Register some tasks to expose to the cli or other tasks ******/
+
+// 3-1: We can call this task writing:
+gulp build gulp.task('build',  scripts);
+
+// 3-2: We can call using: 
+gulp watch gulp.task(watch);
+
+// 3-3: The default task, we can call using: 
+gulp gulp.task('default', gulp.series('build', watch));
+
+/******  Define our tasks using plain functions (available in Gulp 4.0) ******/
+
+// 5: Copying all JavaScript (except vendor scripts) into &quot;build/js&quot; 
+function scripts() {   
+    return gulp.src(paths.scripts)     .pipe(gulp.dest('build/js'));
+}
+
+// 6: Rerun the task when a file changes  
+function watch() {   
+    gulp.watch(paths.scripts, scripts);
+}
+</code></pre>
+
+<h2 id="1-import">1. Import</h2>
+
+<p>Working with gulp implies using many plugins: one to minify, another to compile sass and so on. To be able to use them we need to import them in the gulpfile.</p>
+
+<p>Here it my current workflow to use a new plugin.<br />
+1. Know what I want
+2. Find a plugin that does what I want (using the <a href="http://gulpjs.com/plugins/">official plugin registry</a> or any search engine)
+3. Install the plugins to the dev dependencies (production doesn&rsquo;t need to perform gulp task)</p>
+
+<pre><code class="language-bash">$ npm install [pluginName] --save-dev 
+</code></pre>
+
+<ol>
+<li>Add it in the gulpfile.js</li>
+</ol>
+
+<pre><code class="language-javascript">var relevantName = require(&quot;pluginName&quot;);
+</code></pre>
+
+<h2 id="2-node-glob-why-and-how">2. Node Glob: why and How</h2>
+
+<p>As you know by now, gulp is all about taking files and do some work with it. So, it is important to have an easy way to specify which files we want to operate on.
+Here come glob, a matching pattern makes for files and easier to use than regex.</p>
+
+<p>When globbing we pass an array of patterns, which you should know:</p>
+
+<ul>
+<li>Name wildcard (<em>): i.e : &ldquo;</em>.scss&rdquo; any file ending with .scss</li>
+<li>Folder wildcard (<strong>): i.e : &ldquo;src/</strong>/*.css&rdquo;: File in any subfolder inside src ending with .css</li>
+<li>Exclusion (!):  Could target a repo (&ldquo;!vendor/&rdquo;) or a specific file (&ldquo;!.config&rdquo;)</li>
+<li>Combine pattern (+(|)): i.e: Could be use to find any style file (&rdquo;*.+(scss|css))</li>
+</ul>
+
+<p>Glob used in the starter project:</p>
+
+<pre><code class="language-javascript">html: ['**/*.html'],   
+sass: ['scss/**/*.scss'],   
+css : ['css/**/*.css'],   
+js: ['js/**/*.js'],   
+images: ['img/**/*'], 
+</code></pre>
+
+<h2 id="3-tasks">3. Tasks</h2>
+
+<blockquote>
+<p>FMORR: So now I know that Gulp is a task runner. Can you tell me more about those task!</p>
+</blockquote>
+
+<h3 id="3-1-running-tasks">3.1 Running Tasks</h3>
+
+<blockquote>
+<p>FMORR: So tell me, how can I execute?</p>
+</blockquote>
+
+<p>There is multiple way to execute a task. First they should be available in the gulpfile.js (the name of the file is important and should be in the repo where you use the CLI).</p>
+
+<p>As we saw in the example above there are 3 ways to declare a task:</p>
+
+<pre><code class="language-javascript">/****** Register some tasks to expose to the cli ******/
+
+// 1: Explicitly declare the name
+gulp.task('build',  scripts);
+
+// 2: Implicitly use the function name 
+gulp.task(watch);
+
+// 3: &quot;default&quot; is a reserve keyword to declare the default task 
+gulp.task('default', gulp.series('build', watch));
+</code></pre>
+
+<p>Running #1:</p>
+
+<pre><code class="language-bash"> gulp build 
+</code></pre>
+
+<p>Running #2:</p>
+
+<pre><code class="language-bash">gulp watch 
+</code></pre>
+
+<p>Running #3:</p>
+
+<pre><code class="language-bash">gulp 
+</code></pre>
+
+<blockquote>
+<p>FMORR: What about using the implicit naming and a task sequence?</p>
+</blockquote>
+
+<p>Well, you can&rsquo;t and anyway it would result in a mess!</p>
+
+<blockquote>
+<p>FMORR: How can I see which task is available</p>
+</blockquote>
+
+<ul>
+<li>Read the gulpfile.js and find the task declaration</li>
+<li>If using gulp 4.0: you can use the following build-in command to list all the tasks and their composition (the blue-green name is task that you can call) ~~~Io $ gulp &ndash;tasks ~~~</li>
+</ul>
+
+<h3 id="3-2-tasks-sequence">3.2 Tasks sequence</h3>
+
+<blockquote>
+<p>FMORR: I like having decoupled code. Is it possible to create small independent function and group them together?</p>
+</blockquote>
+
+<p>Well, yes, it would be a poor task runner otherwise! Gulp 4.0 allows to create sequence of tasks and you can define which task execute in series and which one in parallel.</p>
+
+<pre><code class="language-javascript">// We use gulp.series: because we don't want to start the build before the pre-build is completed 
+gulp.task('compile', gulp.series('build:assets', 'build'));
+
+// We use a composition of series and parallel because we first want to delete the assets folder, 
+// then we can create the new one. And every asset type can be built independently 
+gulp.task('build:assets', gulp.series(   
+    cleanAsset,    
+    gulp.parallel(copyHtml, copyScript, copyCss, copyImages, compileSass) ));
+
+// Same explication as above 
+gulp.task('build', gulp.series(   
+    cleanBuild,   
+    gulp.parallel(buildHtml, buildScript, buildCss, buildImages) ));
+</code></pre>
+
+<blockquote>
+<p>FMORR: What happens if an error occurs in a task in series</p>
+</blockquote>
+
+<p>The task stop and the none of the following is executed.</p>
+
+<h3 id="3-3-task-implementation">3.3 Task implementation</h3>
+
+<p>The normal implementation of a task consists of selecting some files using globs, do some work with them, and write the resulting files at the target location.</p>
+
+<h2 id="4-watch">4. Watch</h2>
+
+<p>A watcher is something that will execute tasks when certain event occurs and will continue to do so unless the watcher is stopped (ctrl+c) or an error occurs.</p>
+
+<h1 id="gulp-starter-pack">Gulp starter pack</h1>
+
+<p>Knowing all we know now, I decide to look into bit more into good practices with gulp so I can create a starter pack that can boost the start of your/my future static web site.</p>
+
+<p><a href="https://github.com/PrincessMadMath/helloworld-gulp-starter">Source Code</a></p>
+
+<h2 id="plugins">Plugins</h2>
+
+<p>Task we want to perform
+* Linting: ensure that everybody uses the same convention
+** How enforce before committing/pushing?
+* Minify and concat files
+** Have better performance
+* Autoprefixer<br />
+** Make cleaner style sheet: does not need to add vendor prefix</p>
+
+<h2 id="config-file-explication">Config file explication</h2>
+
+<p>In this <a href="https://www.freshconsulting.com/how-to-organize-your-gulp-js-development-builds-for-multiple-environments/">article</a>, they talk about using a config files to remove the responsibility of specifying globs, plugin options,&hellip; in the tasks files. It also allows to see everything in one place, easier modification and to reuse tasks for different environments.</p>
+
+<p>config.js:</p>
+
+<pre><code class="language-javascript">/*************** Load utility plugin to make the config files work ***************/
+
+// Contain function to merge object
+var _ = require('lodash');
+// Be able to get CLI command parameters (for --env)
+var gutil = require('gulp-util')
+
+/*************** Path ***************/
+
+// All tasks reference path here: make it easier to modify them
+var paths = {
+    src: &quot;src/&quot;,
+    // Warning: changing this name require to add it the .gitignore  
+    temp: &quot;.temp/&quot;,
+    // Changing the dist folder name also required change in .gitignore and the npm deploy scripts
+    dist: &quot;build/&quot;,
+    glob: {
+        html: ['**/*.html'],
+        sass: ['scss/**/*.scss'],
+        css: ['css/**/*.css'],
+        js: ['js/**/*.js'],
+        images: ['img/**/*'],
+        assets: ['assets/**/*']
+    },
+    dest: {
+        html: '',
+        css: 'css/',
+        sass: 'scss/',
+        js: 'js/',
+        images: 'img/',
+        assets: 'assets/'
+    },
+}
+
+// Function to prefix a parent directory to each elements in an array of globs: 
+//    -&gt; return an array of globs 
+// i.e: I want each css files in the src directory: prefixGlob(paths.src, paths.glob.css) 
+// Todo: this should but not calculated at runtime...
+function prefixGlob(prefix, glob) {
+    return glob.map(function (el) {
+        return prefix + el;
+    })
+}
+
+/*************** Little explication ***************
+
+For the next part, it will be split in the different available environment.
+
+The default value will be used for properties that were not overridden. 
+
+**************************************************/
+
+
+/*************** Constants ***************/
+
+// Currently I don't use constants but just to know it is possible 
+var constants = {
+    default: {
+        placeHolderConstant: ''
+    },
+    development: {
+        placeHolderConstant: 'dev'
+    },
+    production: {
+        placeHolderConstant: 'prod'
+    }
+};
+
+
+
+/*************** Plugin toggling ***************/
+
+// Declare which plugins to run for each environment // The cleanest way is to set to false in default and enable them after
+var run = {
+    default: {
+        js: {
+            uglify: false
+        },
+        css: {
+            cssnano: false,
+            autoprefixer: true,
+        },
+        html: {
+            useref: false
+        }
+    },
+
+    development: {
+        js: {
+            uglify: false
+        },
+        css: {
+            cssnano: false
+        }
+    },
+
+    production: {
+        js: {
+            uglify: true
+        },
+        css: {
+            cssnano: true
+        },
+        html: {
+            useref: true
+        }
+    }
+};
+
+
+/*************** Plugin options ***************/
+
+// Declare pluggins option
+var plugin = {
+    default: {
+        js: {
+            uglify: {
+                mangle: true
+            }
+        },
+        css: {
+            autoprefixer: {
+                browsers: ['last 2 versions'],
+            }
+        },
+        lint: {
+            eslint: {
+                configFile: &quot;.eslintrc&quot;,
+                fix: true
+            }
+        }
+    },
+
+    development: {
+        js: {
+            uglify: {
+
+                mangle: false
+            }
+        },
+        lint: {
+            eslint: {
+                configFile: &quot;.dev.eslintrc&quot;,
+            }
+        }
+    },
+
+    production: {
+        js: {
+            uglify: {
+                mangle: true
+            }
+        }
+    }
+};
+
+
+/*************** Exports ***************/
+
+// How to set : --env=[name]
+var env = gutil.env.env || 'development';
+
+
+// Merge: : set the options depending of the environment and using the default value if not specified
+var runOpts = _.merge({}, run.default, run[env]);
+var pluginOpts = _.merge({}, plugin.default, plugin[env]);
+var constantsOpts = _.merge({}, constants.default, constants[env]);
+
+// Make object available to use
+module.exports.constants = constantsOpts;
+module.exports.run = runOpts;
+module.exports.plugin = pluginOpts;
+
+module.exports.paths = paths;
+module.exports.prefixGlob = prefixGlob;
+
+</code></pre>
+
+<h2 id="task-file-explication">Task file explication</h2>
+
+<p>It was often recommended to split the tasks in multiple files to again, make things cleaner.</p>
+
+<p>In my case I split in the following files:
+* build.js: Tasks to build the project: make-it browser-ready
+* watcher.js: Tasks to start a auto-reload server: to use when developing
+* lint.js: Tasks to lint files</p>
+
+<p>gulpfile.js:</p>
+
+<pre><code class="language-javascript">
+var gulp = require('gulp');
+
+// Plugin to support splitting gulp task in multiple files 
+var requireDir = require('require-dir');
+
+// If we want to use tasks declare in other files: this plugging enable forward-reference 
+var fwdRef = require('undertaker-forward-reference');
+
+// Start registry supporting forward-reference
+gulp.registry(fwdRef());
+
+// Load different tasks found in the files
+requireDir('./gulp');
+</code></pre>
+
+<p>build.js</p>
+
+<ul>
+<li>Todo: add schema of build pipeline (vertical (step-by-step) vs horizontal (update))</li>
+</ul>
+
+<pre><code class="language-javascript">
+var gulp = require('gulp');
+var config = require('./config');
+
+/*** html pluggins ***/
+var useref = require(&quot;gulp-useref&quot;);
+
+/*** js plugins ***/
+var uglify = require('gulp-uglify');
+
+/*** style plugins ***/
+var sass = require('gulp-sass');
+var cssnano = require('gulp-cssnano');
+var autoprefixer = require('gulp-autoprefixer');
+
+
+/*** image plugins ***/
+var imagemin = require('gulp-imagemin');
+
+/*** util plugins ***/
+var del = require('del');
+var gulpif = require('gulp-if');
+
+
+
+/*************** Task definition ***************/
+
+gulp.task('build:check', gulp.parallel('lint:js', 'lint:style'));
+
+// From superset files (sass, typescript (not implemented)) to files usable by the browser (css, plain js,...)
+gulp.task('build:compile', gulp.series(
+    cleanCompile,
+    gulp.parallel(copyHtml, copyScript, copyCss, copyImages, compileSass)
+));
+
+// Different operation to do on basic files: minify, autoprefixer,...
+gulp.task('build:build', gulp.series(
+    cleanBuild,
+    gulp.parallel(buildHtml, buildScript, buildCss, buildImages, copyAssets)
+));
+
+// Any task that need to be perform on &quot;final&quot; files
+gulp.task('build:post', postBuildConcat);
+
+/*** Tasks to build step-by-step ***/
+gulp.task('build', gulp.series('build:check', 'build:compile', 'build:build', 'build:post'));
+
+
+gulp.task('clean', gulp.parallel(cleanCompile, cleanBuild));
+
+
+/*** Tasks to update by type ***/
+gulp.task('update:html', gulp.series(copyHtml, buildHtml, postBuildConcat));
+gulp.task('update:css', gulp.series(copyCss, buildCss, postBuildConcat));
+gulp.task('update:sass', gulp.series(compileSass, buildCss, postBuildConcat));
+gulp.task('update:js', gulp.series(copyScript, buildScript, postBuildConcat));
+gulp.task('update:image', gulp.series(copyImages, buildImages));
+gulp.task('update:assets', copyAssets);
+
+
+/*************** Utils function ***************/
+
+function cleanCompile() {
+    return del([config.paths.temp]);
+}
+
+function cleanBuild() {
+    return del([config.paths.dist]);
+}
+
+/*************** Compile function ***************/
+
+function copyHtml() {
+    var glob = config.prefixGlob(config.paths.src, config.paths.glob.html);
+    var dest = config.paths.temp + config.paths.dest.html;
+
+    return gulp.src(glob)
+        .pipe(gulp.dest(dest));
+}
+
+function copyScript() {
+    var glob = config.prefixGlob(config.paths.src, config.paths.glob.js);
+    var dest = config.paths.temp + config.paths.dest.js;
+
+    return gulp.src(glob)
+        .pipe(gulp.dest(dest));
+}
+
+function copyCss() {
+    var glob = config.prefixGlob(config.paths.src, config.paths.glob.css);
+    var dest = config.paths.temp + config.paths.dest.css;
+
+    return gulp.src(glob)
+        .pipe(gulp.dest(dest));
+}
+
+function copyImages() {
+    var glob = config.prefixGlob(config.paths.src, config.paths.glob.images);
+    var dest = config.paths.temp + config.paths.dest.images;
+
+    return gulp.src(glob)
+        .pipe(gulp.dest(dest));
+}
+
+function compileSass() {
+    var glob = config.prefixGlob(config.paths.src, config.paths.glob.sass);
+    var dest = config.paths.temp + config.paths.dest.css;
+
+    return gulp.src(glob)
+        .pipe(sass())
+        .pipe(gulp.dest(dest));
+}
+
+
+/*************** Build functions (make ready for production) ***************/
+
+function buildHtml() {
+    var glob = config.prefixGlob(config.paths.temp, config.paths.glob.html);
+    var dest = config.paths.dist + config.paths.dest.html;
+
+    return gulp.src(glob)
+        .pipe(gulp.dest(dest));
+}
+
+// Only take from .temp and minify
+function buildCss() {
+    var glob = config.prefixGlob(config.paths.temp, config.paths.glob.css);
+    var dest = config.paths.dist + config.paths.dest.css;
+
+    return gulp.src(glob)
+        .pipe(gulpif(config.run.css.autoprefixer, autoprefixer(config.plugin.css.autoprefixer)))
+        .pipe(gulpif(config.run.css.cssnano, cssnano()))
+        .pipe(gulp.dest(dest));
+}
+
+function buildImages() {
+    var glob = config.prefixGlob(config.paths.temp, config.paths.glob.images);
+    var dest = config.paths.dist + config.paths.dest.images;
+
+    return gulp.src(glob)
+        .pipe(imagemin({
+            optimizationLevel: 5
+        }))
+        .pipe(gulp.dest(dest));
+}
+
+function buildScript() {
+    var glob = config.prefixGlob(config.paths.temp, config.paths.glob.js);
+    var dest = config.paths.dist + config.paths.dest.js;
+
+    return gulp.src(glob)
+        .pipe(gulpif(config.run.js.uglify, uglify(config.plugin.js.uglify)))
+        .pipe(gulp.dest(dest));
+}
+
+function copyAssets() {
+    var glob = config.prefixGlob(config.paths.src, config.paths.glob.assets);
+    var dest = config.paths.dist + config.paths.dest.assets;
+
+    return gulp.src(glob)
+        .pipe(gulp.dest(dest));
+}
+
+
+/*************** Post-build task (final file modification) ***************/
+
+// Because we concat files based on the declaration in the .html, we need to
+// run the concat everytime one of the target files is update 
+// (or else it is not in the concat version)
+function postBuildConcat() {
+    var glob = config.prefixGlob(config.paths.dist, config.paths.glob.html);
+    var dest = config.paths.dist + config.paths.dest.html;
+
+    return gulp.src(glob)
+        .pipe(gulpif(config.run.html.useref, useref()))
+        .pipe(gulp.dest(dest));
+}
+
+</code></pre>
+
+<p>watcher.js:</p>
+
+<pre><code class="language-javascript">var gulp = require('gulp');
+var config = require('./config');
+
+// Plugin to enable live-reload (https://www.browsersync.io/docs/gulp)
+var browserSync = require('browser-sync').create();
+
+
+/*************** Task definition ***************/
+gulp.task('server', gulp.series('build', gulp.parallel('lint:watch', watchBuild, watchServer, startServer)));
+
+
+/*************** Watcher functions (change -&gt; build) ***************/
+
+// When a modification is done in the src folder, update the build
+function watchBuild() {
+    var html_glob = config.prefixGlob(config.paths.src, config.paths.glob.html);
+    var js_glob = config.prefixGlob(config.paths.src, config.paths.glob.js);
+    var image_glob = config.prefixGlob(config.paths.src, config.paths.glob.images);
+    var sass_glob = config.prefixGlob(config.paths.src, config.paths.glob.sass);
+    var css_glob = config.prefixGlob(config.paths.src, config.paths.glob.css);
+    var assets_glob = config.prefixGlob(config.paths.src, config.paths.glob.assets);
+
+    gulp.watch(html_glob, gulp.series('update:html'));
+    gulp.watch(js_glob, gulp.series('update:js'));
+    gulp.watch(image_glob, gulp.series('update:image'));
+    gulp.watch(sass_glob, gulp.series('update:sass'));
+    gulp.watch(css_glob, gulp.series('update:css'));
+    gulp.watch(assets_glob, gulp.series('update:assets'));
+}
+
+// When change occurs in /build we want to notify the server (reload or inject)
+function watchServer() {
+    var html_glob = config.prefixGlob(config.paths.dist, config.paths.glob.html);
+    var js_glob = config.prefixGlob(config.paths.dist, config.paths.glob.js);
+    var image_glob = config.prefixGlob(config.paths.dist, config.paths.glob.images);
+    var css_glob = config.prefixGlob(config.paths.dist, config.paths.glob.css);
+    var assets_glob = config.prefixGlob(config.paths.dist, config.paths.glob.assets);
+
+    gulp.watch(html_glob, reload);
+    gulp.watch(js_glob, reload);
+    gulp.watch(image_glob, reload);
+    gulp.watch(css_glob, injectCss);
+    gulp.watch(assets_glob, reload);
+}
+
+/*************** Browsersync helper function ***************/
+
+function startServer() {
+    browserSync.init({
+        server: {
+            baseDir: config.paths.dist
+        }
+    });
+}
+
+// Inject css files (instead of reloading)
+function injectCss() {
+    var css_glob = config.prefixGlob(config.paths.dist, config.paths.glob.css);
+
+    return gulp.src(css_glob)
+        .pipe(browserSync.stream());
+}
+
+function reload(done) {
+    browserSync.reload();
+    done();
+}
+
+</code></pre>
+
+<h1 id="annex-a-questions-i-asked-myself">Annex A: Questions I asked myself.</h1>
+
+<h2 id="how-does-it-work-behind-the-scenes">How does it work behind the scenes?</h2>
+
+<p>Each plugin manipulate virtual file that are streamed with node&rsquo;s stream (all manipulation is done in memoery: there is no intermediate files). You can use streamed files (access by chunks) or a buffer (if the whole file is needed before starting task).</p>
+
+<p>I created 2 minimal plugin that lower every character. Minimal because no check nor error handling.</p>
+
+<p>Using buffer:</p>
+
+<pre><code class="language-javascript">var through = require('through2');
+
+function transformText(file) {
+var content = file.contents.toString('utf8');
+return content.toLowerCase();
+}
+
+// plugin level function: will deals which each files function toLowerPlugin(){
+
+function handleFile(file, enc, callback){
+
+//  if (file.isBuffer())          var output = transformText(file);
+
+file.contents = new Buffer(output, 'utf8');
+
+// Notify stream engine that we are done with this file         callback(null, file);
+}
+
+return  through.obj(handleFile);
+}
+
+// Make it available to use module.exports = toLowerPlugin;
+</code></pre>
+
+<p>Using stream:</p>
+
+<p>They also recommend supporting streaming, but most of the example I found doesn&rsquo;t support them. Maybe I will give an example later.</p>
+
+<p><a href="https://medium.com/@webprolific/getting-gulpy-a2010c13d3d5#.dosj4tpx9">Good documentation</a></p>
+
+<h2 id="what-are-the-alternatives-of-gulp">What are the alternatives of gulp?</h2>
+
+<p>First you can look at other task runners:</p>
+
+<ul>
+<li>Grunt -&gt; getting their powerfulness from all the available plugins, seem more complicated to setup/use than gulp</li>
+</ul>
+
+<p>Then you can ask yourself if we can do things differently: here come bundlers.</p>
+
+<h2 id="i-saw-there-is-multiple-way-we-can-use-watchers-can-you-tell-me-more-about-them">I saw there is multiple way we can use watchers, can you tell me more about them.</h2>
+
+<p>(todo)</p>
+
+<h2 id="what-about-npm-packages-and-modules">What about npm, packages and modules?</h2>
+
+<p>The purpose of npm is to shared small block of code solving a problem (called package).</p>
+
+<blockquote>
+<p>FMORR: OK but what consists of a package?_</p>
+</blockquote>
+
+<p>Well, it is simple a directory where you find a package.json file.</p>
+
+<blockquote>
+<p>Ohhh and what can it do?_</p>
+</blockquote>
+
+<p>It can add new available command for the command line (like gulp) or export method that you can use in you js file.</p>
+
+<blockquote>
+<p>FMORR: OK last question! What is the difference between a module and a package?_</p>
+</blockquote>
+
+<p>Everything within require() is a module. A module is a single js file exposing multiple function that we can use (look for the <strong>exports</strong> keyword). A package can contain multiple modules and depend on other packages and contains an entry point (often index.js) that is use in the require().</p>
+
+<h1 id="annex-b-sources">Annex B: Sources</h1>
+
+<p><a href="https://github.com/gulpjs/gulp">Source code of Gulp</a><br />
+<a href="https://www.npmjs.com/package/gulp-4.0.build">Official code sample</a><br />
+<a href="https://github.com/gulpjs/gulp/blob/master/docs/README.md">Official documentation</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+              
+                <div class="post-footer-tags">
+                  <span class="text-color-light text-small">TAGGED IN</span><br/>
+                  
+  <a class="tag tag--primary tag--small" href="http://helloworldeverything.com//tags/tools/">tools</a>
+
+  <a class="tag tag--primary tag--small" href="http://helloworldeverything.com//tags/web/">web</a>
+
+  <a class="tag tag--primary tag--small" href="http://helloworldeverything.com//tags/automation/">automation</a>
+
+                </div>
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/" data-tooltip="Step by step automatization with gulp">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/about/" data-tooltip="about">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#table-of-contents">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2017 Mathieu Gamache. All Rights Reserved.
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/" data-tooltip="Step by step automatization with gulp">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/about/" data-tooltip="about">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#table-of-contents">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fhelloworldeverything.com%2f2016%2f10%2fgulp-starter-pack%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author's picture" />
+    
+    <h4 id="about-card-name">Mathieu Gamache</h4>
+    
+      <div id="about-card-bio">Ingénieur logicielle, amoureux de donjon et dragon et joueur de magic the gathering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Étudiant en génie logicielle
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Québec
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search "
+          autofocus="autofocus"/>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2017/01/comment-faire-sa-lessive/">
+                <h3 class="media-heading">Comment faire sa lessive</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Introduction Il existe essentiellement 5 techniques concernant le lavage de linges en voyage:
+ Aller dans une buanderie Utiliser un service de &ldquo;laundry&rdquo; Lessive à la main dans le lavabo Lessive avec gadget de voyage Ne pas laver le linges et se dire qu&rsquo;en restant dans le fond du sac il va commencer à devenir pas sal.  1. Aller dans un buanderie Bien que plus facile que de laver à la main, utiliser les machines coutent de l&rsquo;argent et peut prendre jusqu&rsquo;à 1h30.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2017/01/comprendre-les-tissues/">
+                <h3 class="media-heading">Comprendre les tissues</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Pour mieux comprendre les différents types de tissues et leurs caractéristiques (au-delà des buzzword de marketing). Avec un dip dans l&rsquo;histoire et comment ça marche.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2017/01/le-syst%C3%A8me-de-couche/">
+                <h3 class="media-heading">Le système de couche</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Lorsqu&rsquo;on commence à chercher sur les vêtements d&rsquo;extérieur, on constate rapidement que les magasins les trient
+souvent selon un système de couche (e.g.: base-layer, mid-laver,&hellip;). Bien qu&rsquo;il est facile de comprendre le
+principe de base, ce post vise à aller un peu plus loin pour bien distinguer le rôle de chacun et surtout savoir
+si on en a besoin!</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/12/pr%C3%A9paration-%C3%A0-voyager-en-ultra-l%C3%A9ger/">
+                <h3 class="media-heading">Préparation à voyager en ultra léger!</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Post regroupant plusieurs informations qui m&rsquo;ont été utiles lors de ma préparation à mon voyage d&rsquo;un mois en ultra-léger en Thailand.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/11/blogger-avec-hugo/">
+                <h3 class="media-heading">Blogger avec hugo</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Mon aventure de commencer à bloguer en utilisant Hugo et résumé des aspects importants et à ne pas oublier lorsqu&rsquo;on l&rsquo;utilise.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/">
+                <h3 class="media-heading">Step by step automatization with gulp</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Hands-on, multi-step exercise to discover gulp. How to automate multiple aspect of a static web page using gulp.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/10/gulp-starter-pack/">
+                <h3 class="media-heading">Gulp starter pack</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Simple starter pack for a static web site using the task-runner gulp (with focus on good practice). Use lots of sweet gulp plugin to make the development easier.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         7 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://helloworldeverything.com/images/background.jpg');"></div>
+  
+
+
+    
+<script src="http://helloworldeverything.com/js/script-lrchyhb5kddxeiejst2qhr1sqb7vhfxkdhrigadzb4moxbk6your91edbeqz.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+  
+
+
+
+ <script src="http://helloworldeverything.com/js/prism.js"></script> 
+  </body>
+</html>

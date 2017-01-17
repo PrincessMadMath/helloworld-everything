@@ -1,0 +1,962 @@
+
+
+  
+    
+  
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.17">
+    <title>Blogger avec hugo</title>
+    <meta name="author" content="Mathieu Gamache">
+    <meta name="keywords" content=", mathieu, gamache, hello world">
+
+    <link rel="icon" href="http://helloworldeverything.com/favicon.png">
+    
+
+    
+    <meta name="description" content="Mon aventure de commencer à bloguer en utilisant Hugo et résumé des aspects importants et à ne pas oublier lorsqu&rsquo;on l&rsquo;utilise.
+
+">
+    <meta property="og:description" content="Mon aventure de commencer à bloguer en utilisant Hugo et résumé des aspects importants et à ne pas oublier lorsqu&rsquo;on l&rsquo;utilise.
+
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Blogger avec hugo">
+    <meta property="og:url" content="/2016/11/blogger-avec-hugo/">
+    <meta property="og:site_name" content="Hello World Everything">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hello World Everything">
+    <meta name="twitter:description" content="Mon aventure de commencer à bloguer en utilisant Hugo et résumé des aspects importants et à ne pas oublier lorsqu&rsquo;on l&rsquo;utilise.
+
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="http://helloworldeverything.com/css/style-zfzvxnwixwz6qe7xv3xz1eyvlzc7cdfoxrgduk75zpqxib0hatbphiq9sddx.min.css" />
+    
+    
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58765047-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://helloworldeverything.com/">Hello World Everything</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="http://helloworldeverything.com/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+
+  <link href="http://helloworldeverything.com/css/prism.css" rel="stylesheet" />
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://helloworldeverything.com/#about">
+          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author's picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Mathieu Gamache</h4>
+        
+          <h5 class="sidebar-profile-bio">Ingénieur logicielle, amoureux de donjon et dragon et joueur de magic the gathering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="http://helloworldeverything.com/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/PrincessMadMath" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://helloworldeverything.com/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Blogger avec hugo
+    </h1>
+  
+  <div class="post-meta">
+  <time itemprop="datePublished" datetime="2016-11-17T18:04:28-05:00">
+    Nov 17, 2016
+  </time>
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://helloworldeverything.com/categories/blog">blog</a>, 
+    
+      <a class="category-link" href="http://helloworldeverything.com/categories/how-to-use">how-to-use</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Mon aventure de commencer à bloguer en utilisant Hugo et résumé des aspects importants et à ne pas oublier lorsqu&rsquo;on l&rsquo;utilise.</p>
+
+<p></p>
+
+<h1 id="aperçue">Aperçue</h1>
+
+<p>Ce post est revu des différentes capacités de Hugo, je pense qu&rsquo;il est utile pour savoir comment bien utiliser Hugo ainsi que
+des petits détails utiles (par exemple je ne savais pas que Hugo offrait une table des matières intégrés)</p>
+
+<h1 id="table-of-contents">Table of Contents</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#aperçue">Aperçue</a></li>
+<li><a href="#début-de-l-aventure">Début de l&rsquo;aventure</a></li>
+<li><a href="#les-bases">Les bases</a>
+<ul>
+<li><a href="#organisation-et-sections">Organisation et sections</a>
+<ul>
+<li><a href="#types">Types</a></li>
+</ul></li>
+<li><a href="#front-matter">Front Matter</a>
+<ul>
+<li><a href="#variables-intéressantes">Variables intéressantes</a></li>
+<li><a href="#résumé">Résumé</a></li>
+</ul></li>
+<li><a href="#archetype">Archetype</a></li>
+</ul></li>
+<li><a href="#les-thèmes">Les thèmes</a>
+<ul>
+<li><a href="#pour-utiliser-un-thème">Pour utiliser un thème</a></li>
+<li><a href="#tweek-le-thème">Tweek le thème</a></li>
+</ul></li>
+<li><a href="#template">Template</a></li>
+<li><a href="#taxonomies">Taxonomies</a></li>
+<li><a href="#les-extras">Les extras</a>
+<ul>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#shortcodes">Shortcodes</a>
+<ul>
+<li><a href="#utiliser-un-shortcodes">Utiliser un shortcodes</a></li>
+<li><a href="#écrire-un-shortcodes">Écrire un shortcodes</a></li>
+</ul></li>
+<li><a href="#table-des-matières">Table des matières</a></li>
+<li><a href="#markdown">Markdown</a></li>
+</ul></li>
+<li><a href="#annexe">Annexe</a></li>
+</ul>
+</nav>
+
+<h1 id="début-de-l-aventure">Début de l&rsquo;aventure</h1>
+
+<p>Au moment où j&rsquo;ai décidé de commencer à vouloir bloger, pour plusieurs raisons (voir autre post), j&rsquo;ai d&rsquo;abord du trouver une plateforme qui
+rapidement me permettrait de commencer à écrire. J&rsquo;avais quelque critère:</p>
+
+<ul>
+<li>Compatible avec gh-pages: donc un site web statique (sans serveur)</li>
+<li>Facile à configurer et setup</li>
+<li>Plusieurs options de customization</li>
+</ul>
+
+<p>Après quelque recherche je devais choisir entre Jykyll qui à un support officiel avec gh-pages et hugo qui semblait avoir le hype dans les voiles.
+Puisque jekyll demandait ruby et j&rsquo;étais tros paresseux pour setup cela, j&rsquo;ai choisi hugo qui contient un executable: easy peasy!</p>
+
+<p>Après plusieurs heures à regarder les différents thèmes possible: mon objectif pour le blog n&rsquo;était pas d&rsquo;être un spécialiste du css, je voulais
+profiter le travail d&rsquo;un autre. Finalement j&rsquo;ai du changer plusieurs fois: ce qui demande toujours quelque configuration&hellip; hurhghghg!</p>
+
+<p>Bref considérant cette partie volatile et suptile au changement je me suis mis en quête de comprendre les concepts de base de Hugo qui sont réutilisables
+peu importe le thème. Alors voilà pourquoi j&rsquo;écris ce post!</p>
+
+<p>Tout d&rsquo;abord, je compte sur le fait que vous avez au moins lue le <a href="https://gohugo.io/overview/quickstart/">tutoriel officiel</a></p>
+
+<h1 id="les-bases">Les bases</h1>
+
+<p>Ce qu&rsquo;il faut savoir pour profiter à 80% des fonctionnalités de Hugo</p>
+
+<h2 id="organisation-et-sections">Organisation et sections</h2>
+
+<p><a href="https://gohugo.io/content/organization/">Documentation officiel</a></p>
+
+<p>Hugo ne supporte pas seulement le contenu de &ldquo;post&rdquo;, il peut supporté d&rsquo;autres types comme des quotes. Ces différents types ont le nom de sections et
+on les retrouves au premier niveau sous le dossier content. L&rsquo;organisation de notre contenu est donc très visuel ce qui est agréable. Bien sur tout
+est modifiable avec le <a href="#front-matter">Front Matter</a></p>
+
+<pre><code>.
+└── content
+    ├── post // section #1
+    |   ├── firstpost.md   // &lt;- http://[...].com/post/firstpost/
+    |   ├── happy
+    |   |   └── ness.md  // &lt;- http://[...].com/post/happy/ness/
+    |   └── secondpost.md  // &lt;- http://[...].com/post/secondpost/
+    └── quote // section #2
+        ├── first.md       // &lt;- http://[...].com/quote/first/
+        └── second.md      // &lt;- http://[...].com/quote/second/
+</code></pre>
+
+<h3 id="types">Types</h3>
+
+<blockquote>
+<p>FMORR: Ok, c&rsquo;est bien beau avoir des sections et différents types de contenu mais qu&rsquo;est ce que ca change?</p>
+</blockquote>
+
+<p>Ayant des types on peut créer des <a href="#archetype">archetype</a> et <a href="#template">templates</a></p>
+
+<h2 id="front-matter">Front Matter</h2>
+
+<blockquote>
+<p>FMORR : Hummm, ca semble être le début d&rsquo;une mauvaise blague. Dans tous les cas, ma position est que tout matter!!!</p>
+
+<p>PM: &hellip; est ce que tu te trouves drôles FMORR, je pensais qu&rsquo;avec l&rsquo;âge viendrait la sagesse&hellip;.</p>
+</blockquote>
+
+<p>Bref de plaisanterie! Front Matter veut tout simplement dire qu&rsquo;i lest possible d&rsquo;ajouter du meta-data à notre contenu.</p>
+
+<p>Il supporte différent format:
+* TOML: identifié avec &lsquo;+++&rsquo; qui utilise des =
+* YAML: identifié avec &lsquo;&mdash;&rsquo; qui utilise des :
+* JSON: qui est tout simplement un object JSON</p>
+
+<blockquote>
+<p>FMORR: Ok! À quoi ca sert maintenant?</p>
+</blockquote>
+
+<p>Les pairs variables-valeurs sont accesible dans les templates. Par exemple on voudrait que le titre du post soit écrit en taille 40 dans la page du post
+et en taille 10 sur la page qui montres tous les posts disponibles</p>
+
+<p>(todo: ajouter photo)</p>
+
+<h3 id="variables-intéressantes">Variables intéressantes</h3>
+
+<ul>
+<li>title: Titre du contenu (duh!)</li>
+<li>description: Description du contenu</li>
+<li>date: Date utilisé pour trier les posts</li>
+<li>taxonomies: <a href="#taxonomies">Voir prochaines sections</a></li>
+<li>draft: Si brouillon normalement on ne veut pas le rendre visible (à moins d&rsquo;avoir des bas standards et que de seulement montrer de quoi qu&rsquo;on est fier est pas dans nos valeurs)</li>
+</ul>
+
+<h3 id="résumé">Résumé</h3>
+
+<p>Par défaut hugo, prend les 70 premiers mots du post et les mets dans la variable summary. Ce que je trouve donne souvent des résultats peu désirable: les premiers mots d&rsquo;un texte
+sont rarement le parfait résumé qu&rsquo;on en ferais. Heureusement, il est possible de le spécifier et en plus il permet d&rsquo;utiliser le formatage HTML!</p>
+
+<p>Il suffit d&rsquo;ajouter le résumé à la fin du Front Matter et lorsqu&rsquo;on a finit de l&rsquo;écrire on ajoute: <code>&lt;!--more--&gt;</code></p>
+
+<pre><code class="language-markup">---
+title : &quot;Legit post&quot;
+tags : [&quot;serious&quot;, &quot;potato&quot;, &quot;pls take me au sérieux&quot;] 
+categories : [&quot;demo&quot;]
+date : &quot;2016-11-17&quot; 
+---
+
+Résumé du post: bla bla bla bla potato bla bla bla bla
+
+&lt;!--more--&gt; 
+
+Reste du texte
+[...]
+</code></pre>
+
+<h2 id="archetype">Archetype</h2>
+
+<blockquote>
+<p>FMORR : Damn si ca se rapproche tant soit peu d&rsquo;un archnemesis, hugo vient monter d&rsquo;une coche en terme de coolitude</p>
+
+<p>PM: &hellip; hélas non: le arche devant le mot type signifie seulement que c&rsquo;est le modèle du type. Mais FMI la différence le mot arch devant ennemie provient du grec &ldquo;arkhos&rdquo; qui
+signifie &ldquo;le plus important&rdquo;, et la différence entre un ennemie et un némésis et une référence à la déesse grec de la juste colère et de la rétribution céleste qui est utilisé
+par antonomase pour signifier la force vengeresse. On pourrait dire que plusieurs peuvent vaincre leur ennemie mais peu peuvent échapper leur nemesis! <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></p>
+</blockquote>
+
+<p>Bref&hellip;. il permet de déclarer les variables de front matter par défaut pour un type de contenue.</p>
+
+<pre><code>.
+└── archetypes
+    ├── default.md // Le modèle utilisé si pas de modèle plus spécialisé pour un type
+    ├── post.md // Le modèle utilisé pour le type de contenu &quot;post&quot;
+</code></pre>
+
+<blockquote>
+<p>FMORR: Comment utiliser ces valeurs par défaut?</p>
+</blockquote>
+
+<p>Il suffit d&rsquo;utiliser la commande new de hugo:</p>
+
+<pre><code class="language-bash">hugo new [type conteny]/[path]/my-new-content.md
+</code></pre>
+
+<h1 id="les-thèmes">Les thèmes</h1>
+
+<p>Pour accélérer le démarage d&rsquo;un blog il n&rsquo;y a pas mieux que de partir d&rsquo;un thème: il va tout styler ton site pour qu&rsquo;il soit responsive, beau, &hellip;</p>
+
+<p>Un des plus grand problème est qu&rsquo;il y a telement de <a href="http://themes.gohugo.io/">choix</a>! Et que chacun demande une petite configuration initial.</p>
+
+<h2 id="pour-utiliser-un-thème">Pour utiliser un thème</h2>
+
+<blockquote>
+<p>PM: Dans tousles showcase il le rapelle mais juste au cas où!</p>
+</blockquote>
+
+<ol>
+<li>Télécharger le thème désiré</li>
+</ol>
+
+<pre><code class="language-bash">cd themes
+git clone URL_TO_THEME
+</code></pre>
+
+<ol>
+<li>Indiquer à Hugo quel thème utilisé (puisqu&rsquo;on peut en télécharger plusieurs)</li>
+</ol>
+
+<ul>
+<li>On peut utiliser la ligne de commande</li>
+</ul>
+
+<pre><code class="language-bash">hugo -t ThemeName
+</code></pre>
+
+<ul>
+<li>Ou le set nous même dans le fichier config</li>
+</ul>
+
+<pre><code class="language-yaml">theme: &quot;ThemeName&quot;
+</code></pre>
+
+<h2 id="tweek-le-thème">Tweek le thème</h2>
+
+<p>Il m&rsquo;est rapidement arrivé que je voulais tweeker un peu le thème. Il serait une mauvaise idée de le modifier directement dans le dossier thème puisque que s&rsquo;il y a une mise
+à jour nos modifications vont être effacé!</p>
+
+<p>Le principe est donc de remplacer les templates, fichiers statiques ou archetypes à partir du répertoire de base (pas de theme). Si même nom de fichier dans même sous-arboresence
+Hugo va d&rsquo;abord sélectionner le notre.</p>
+
+<p>Par exemple:</p>
+
+<pre><code>/layouts/_default/single.html
+</code></pre>
+
+<p>Va remplacer:</p>
+
+<pre><code>/themes/themename/layouts/_default/single.html
+</code></pre>
+
+<h1 id="template">Template</h1>
+
+<blockquote>
+<p>PM : C&rsquo;est les template qui permet de constuire simplement un site web complexe et riche en ressource.</p>
+</blockquote>
+
+<p>Il existe 4 types important de template:
+* Single: Pour visualiser un type de contenu
+* List: Pour visualiser plusieurs morceau de contenus (ex: montrer tous les posts)
+* Homepage: Code pour la Home Page du site (&hellip;)
+* Partial: Permet de séparer des morceaux de code et les ré-utiliser à de multiples endroits</p>
+
+<h1 id="taxonomies">Taxonomies</h1>
+
+<p>Pour faire simple, il s&rsquo;agit une façon de classifié le contenu. Par exemples tags, categories, series sont des taxonomies.</p>
+
+<h1 id="les-extras">Les extras</h1>
+
+<p>Pour les utilisations plus avancés et les configurations plus poussés.</p>
+
+<h2 id="comments">Comments</h2>
+
+<p>Il est fort probable qu&rsquo;on désire pouvoir offrir la chance aux lecteurs d&rsquo;écrire leur commentaire constructif, heureusement pour combler le problème qu&rsquo;on n&rsquo;a pas de backend
+Hugo est compatible avec <a href="https://disqus.com/">Disqus</a> un service externe qui ajoute la fonctionnalités de commenter. Il suffit de s&rsquo;inscrire et d&rsquo;ajouter au Front Matter quel
+id de Disqus il doit utiliser.</p>
+
+<h2 id="shortcodes">Shortcodes</h2>
+
+<p>Puisque le Markdown ne supporte par tout les fonctionnalités qu&rsquo;on voudrait, Hugo offre la possibilité de créer des snippets de code qui va être utilisé lorsqu&rsquo;il va générer l&rsquo;affichage.</p>
+
+<p>Hugo offre plusieurs shortcode déjà intégré: il suffit de placer ces codes ci-dessous à l&rsquo;intérieur de {{}}</p>
+
+<ul>
+<li>Un tweet de tweeter : &lt; tweet id_tweet &gt;</li>
+<li>Vidéo youtube: &lt; youtube id_vidéo &gt;</li>
+<li>&hellip;</li>
+</ul>
+
+<h3 id="utiliser-un-shortcodes">Utiliser un shortcodes</h3>
+
+<p>Supposons qu&rsquo;on veut utiliser la shortcode AwsomeShortcode avec les paramètres param1 et param2 dans notre .md on va écrire:</p>
+
+<pre><code class="language-markdown">{{&lt; AwsomeShortcode param1 param2 &gt;}} 
+Autre contenu
+{{&lt; /AwsomeShortcode &gt;}}
+</code></pre>
+
+<p>Ou bien si les paramètres ont des noms (par exemple nom et titre):</p>
+
+<pre><code class="language-markdown">{{&lt; AwsomeShortcode nom=&quot;param1&quot; titre=&quot;param2&quot; &gt;}}
+Autre contenu
+{{&lt; /AwsomeShortcode &gt;}}
+</code></pre>
+
+<p>Ps: Il est possible d&rsquo;indiquer que notre contenu soit quand même traité avec Markdown avant d&rsquo;être passé au shortcode: il suffit de changer <code>&lt;</code> et <code>&gt;</code> par <code>%</code></p>
+
+<h3 id="écrire-un-shortcodes">Écrire un shortcodes</h3>
+
+<p>On écrit un fichier .html placé dans layout/shortcodes. Bien qu&rsquo;il s&rsquo;agit d&rsquo;un simple fichier html il est possible d&rsquo;accéder à différents types de variables et même d&rsquo;ajouter un peu de logique
+(par exemple si la variable X a été énoncé mettre une bordure avec la couleur de X): ce qui est à l&rsquo;intérieur de <code>{{}}</code> va être interpréter par Hugo.</p>
+
+<p>On peut accéder à plusieurs variables:
+* Les paramètres
+** Par numéro selon ordre déclaration: <code>{{ .Get 0}}</code>
+** Par nom <code>{{ .Get &quot;titre&quot; }}</code>
+* <a href="https://gohugo.io/templates/variables/">Varibles de la page</a>
+** Avec : <code>{{ .Page.[variable name] }}</code>
+* Et le contenu déclarer à l&rsquo;intérieur du shortcodes
+** Avec : <code>{{ .Inner }}</code></p>
+
+<h2 id="table-des-matières">Table des matières</h2>
+
+<p>Une des fonctionnalités de Hugo que j&rsquo;ai découvert un peu plus tard et qui m&rsquo;aurait épargné du travail est que Hugo est capable de détecter les titres et sous-titres d&rsquo;un post
+et de généré la table des matières. Si on écrit un template il faut indiquer qu&rsquo;on utilise la variable <code>.TableOfContents</code></p>
+
+<h2 id="markdown">Markdown</h2>
+
+<p>Le markdown à pour but de simplifier l&rsquo;écriture d&rsquo;un post: il permet de définir comment afficher l&rsquo;information</p>
+
+<p>Hugo utilise <a href="https://github.com/russross/blackfriday">Blackfriday</a></p>
+
+<h1 id="annexe">Annexe</h1>
+
+<blockquote>
+<p>PM: Rappel toi FMORR que la <a href="https://gohugo.io/overview/introduction/">documentation de hugo</a> est lui même un blog hugo dont on peut regarder le <a href="https://github.com/spf13/hugo/tree/master/docs">code source</a></p>
+</blockquote>
+
+<p>*[antonomase] : Figure de style qui consiste à utilisé un nom propre est utilisé comme un nom commun: par exemple un atlas provient en fait de Atlas un géant de la mythologie grecque qui devait porter le monde sur ses épaules</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="http://www.dailywritingtips.com/on-the-use-of-nemesis/">Difference ennemie, némésis et arch</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+              
+                <div class="post-footer-tags">
+                  <span class="text-color-light text-small">TAGGED IN</span><br/>
+                  
+  <a class="tag tag--primary tag--small" href="http://helloworldeverything.com//tags/hugo/">hugo</a>
+
+                </div>
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/2016/12/pr%C3%A9paration-%C3%A0-voyager-en-ultra-l%C3%A9ger/" data-tooltip="Préparation à voyager en ultra léger!">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/" data-tooltip="Step by step automatization with gulp">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#table-of-contents">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2017 Mathieu Gamache. All Rights Reserved.
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/2016/12/pr%C3%A9paration-%C3%A0-voyager-en-ultra-l%C3%A9ger/" data-tooltip="Préparation à voyager en ultra léger!">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/" data-tooltip="Step by step automatization with gulp">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#table-of-contents">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fhelloworldeverything.com%2f2016%2f11%2fblogger-avec-hugo%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author's picture" />
+    
+    <h4 id="about-card-name">Mathieu Gamache</h4>
+    
+      <div id="about-card-bio">Ingénieur logicielle, amoureux de donjon et dragon et joueur de magic the gathering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Étudiant en génie logicielle
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Québec
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search "
+          autofocus="autofocus"/>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2017/01/comment-faire-sa-lessive/">
+                <h3 class="media-heading">Comment faire sa lessive</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Introduction Il existe essentiellement 5 techniques concernant le lavage de linges en voyage:
+ Aller dans une buanderie Utiliser un service de &ldquo;laundry&rdquo; Lessive à la main dans le lavabo Lessive avec gadget de voyage Ne pas laver le linges et se dire qu&rsquo;en restant dans le fond du sac il va commencer à devenir pas sal.  1. Aller dans un buanderie Bien que plus facile que de laver à la main, utiliser les machines coutent de l&rsquo;argent et peut prendre jusqu&rsquo;à 1h30.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2017/01/comprendre-les-tissues/">
+                <h3 class="media-heading">Comprendre les tissues</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Pour mieux comprendre les différents types de tissues et leurs caractéristiques (au-delà des buzzword de marketing). Avec un dip dans l&rsquo;histoire et comment ça marche.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2017/01/le-syst%C3%A8me-de-couche/">
+                <h3 class="media-heading">Le système de couche</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Lorsqu&rsquo;on commence à chercher sur les vêtements d&rsquo;extérieur, on constate rapidement que les magasins les trient
+souvent selon un système de couche (e.g.: base-layer, mid-laver,&hellip;). Bien qu&rsquo;il est facile de comprendre le
+principe de base, ce post vise à aller un peu plus loin pour bien distinguer le rôle de chacun et surtout savoir
+si on en a besoin!</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/12/pr%C3%A9paration-%C3%A0-voyager-en-ultra-l%C3%A9ger/">
+                <h3 class="media-heading">Préparation à voyager en ultra léger!</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Post regroupant plusieurs informations qui m&rsquo;ont été utiles lors de ma préparation à mon voyage d&rsquo;un mois en ultra-léger en Thailand.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/11/blogger-avec-hugo/">
+                <h3 class="media-heading">Blogger avec hugo</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Mon aventure de commencer à bloguer en utilisant Hugo et résumé des aspects importants et à ne pas oublier lorsqu&rsquo;on l&rsquo;utilise.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/10/step-by-step-automatization-with-gulp/">
+                <h3 class="media-heading">Step by step automatization with gulp</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Hands-on, multi-step exercise to discover gulp. How to automate multiple aspect of a static web page using gulp.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://helloworldeverything.com/2016/10/gulp-starter-pack/">
+                <h3 class="media-heading">Gulp starter pack</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Simple starter pack for a static web site using the task-runner gulp (with focus on good practice). Use lots of sweet gulp plugin to make the development easier.</p>
+
+<p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         7 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://helloworldeverything.com/images/background.jpg');"></div>
+  
+
+
+    
+<script src="http://helloworldeverything.com/js/script-lrchyhb5kddxeiejst2qhr1sqb7vhfxkdhrigadzb4moxbk6your91edbeqz.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+  
+
+
+
+ <script src="http://helloworldeverything.com/js/prism.js"></script> 
+  </body>
+</html>

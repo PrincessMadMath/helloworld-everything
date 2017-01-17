@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hello World Everything</title>
+    <link>http://helloworldeverything.com/tags/hugo/index.xml</link>
+    <description>Recent content on Hello World Everything</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://helloworldeverything.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blogger avec hugo</title>
+      <link>http://helloworldeverything.com/2016/11/blogger-avec-hugo/</link>
+      <pubDate>Thu, 17 Nov 2016 18:04:28 -0500</pubDate>
+      
+      <guid>http://helloworldeverything.com/2016/11/blogger-avec-hugo/</guid>
+      <description>&lt;p&gt;Mon aventure de commencer à bloguer en utilisant Hugo et résumé des aspects importants et à ne pas oublier lorsqu&amp;rsquo;on l&amp;rsquo;utilise.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;aperçue&#34;&gt;Aperçue&lt;/h1&gt;
+
+&lt;p&gt;Ce post est revu des différentes capacités de Hugo, je pense qu&amp;rsquo;il est utile pour savoir comment bien utiliser Hugo ainsi que
+des petits détails utiles (par exemple je ne savais pas que Hugo offrait une table des matières intégrés)&lt;/p&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;début-de-l-aventure&#34;&gt;Début de l&amp;rsquo;aventure&lt;/h1&gt;
+
+&lt;p&gt;Au moment où j&amp;rsquo;ai décidé de commencer à vouloir bloger, pour plusieurs raisons (voir autre post), j&amp;rsquo;ai d&amp;rsquo;abord du trouver une plateforme qui
+rapidement me permettrait de commencer à écrire. J&amp;rsquo;avais quelque critère:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Compatible avec gh-pages: donc un site web statique (sans serveur)&lt;/li&gt;
+&lt;li&gt;Facile à configurer et setup&lt;/li&gt;
+&lt;li&gt;Plusieurs options de customization&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Après quelque recherche je devais choisir entre Jykyll qui à un support officiel avec gh-pages et hugo qui semblait avoir le hype dans les voiles.
+Puisque jekyll demandait ruby et j&amp;rsquo;étais tros paresseux pour setup cela, j&amp;rsquo;ai choisi hugo qui contient un executable: easy peasy!&lt;/p&gt;
+
+&lt;p&gt;Après plusieurs heures à regarder les différents thèmes possible: mon objectif pour le blog n&amp;rsquo;était pas d&amp;rsquo;être un spécialiste du css, je voulais
+profiter le travail d&amp;rsquo;un autre. Finalement j&amp;rsquo;ai du changer plusieurs fois: ce qui demande toujours quelque configuration&amp;hellip; hurhghghg!&lt;/p&gt;
+
+&lt;p&gt;Bref considérant cette partie volatile et suptile au changement je me suis mis en quête de comprendre les concepts de base de Hugo qui sont réutilisables
+peu importe le thème. Alors voilà pourquoi j&amp;rsquo;écris ce post!&lt;/p&gt;
+
+&lt;p&gt;Tout d&amp;rsquo;abord, je compte sur le fait que vous avez au moins lue le &lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;tutoriel officiel&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;les-bases&#34;&gt;Les bases&lt;/h1&gt;
+
+&lt;p&gt;Ce qu&amp;rsquo;il faut savoir pour profiter à 80% des fonctionnalités de Hugo&lt;/p&gt;
+
+&lt;h2 id=&#34;organisation-et-sections&#34;&gt;Organisation et sections&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/content/organization/&#34;&gt;Documentation officiel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hugo ne supporte pas seulement le contenu de &amp;ldquo;post&amp;rdquo;, il peut supporté d&amp;rsquo;autres types comme des quotes. Ces différents types ont le nom de sections et
+on les retrouves au premier niveau sous le dossier content. L&amp;rsquo;organisation de notre contenu est donc très visuel ce qui est agréable. Bien sur tout
+est modifiable avec le &lt;a href=&#34;#front-matter&#34;&gt;Front Matter&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.
+└── content
+    ├── post // section #1
+    |   ├── firstpost.md   // &amp;lt;- http://[...].com/post/firstpost/
+    |   ├── happy
+    |   |   └── ness.md  // &amp;lt;- http://[...].com/post/happy/ness/
+    |   └── secondpost.md  // &amp;lt;- http://[...].com/post/secondpost/
+    └── quote // section #2
+        ├── first.md       // &amp;lt;- http://[...].com/quote/first/
+        └── second.md      // &amp;lt;- http://[...].com/quote/second/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;types&#34;&gt;Types&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;FMORR: Ok, c&amp;rsquo;est bien beau avoir des sections et différents types de contenu mais qu&amp;rsquo;est ce que ca change?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ayant des types on peut créer des &lt;a href=&#34;#archetype&#34;&gt;archetype&lt;/a&gt; et &lt;a href=&#34;#template&#34;&gt;templates&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;front-matter&#34;&gt;Front Matter&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;FMORR : Hummm, ca semble être le début d&amp;rsquo;une mauvaise blague. Dans tous les cas, ma position est que tout matter!!!&lt;/p&gt;
+
+&lt;p&gt;PM: &amp;hellip; est ce que tu te trouves drôles FMORR, je pensais qu&amp;rsquo;avec l&amp;rsquo;âge viendrait la sagesse&amp;hellip;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bref de plaisanterie! Front Matter veut tout simplement dire qu&amp;rsquo;i lest possible d&amp;rsquo;ajouter du meta-data à notre contenu.&lt;/p&gt;
+
+&lt;p&gt;Il supporte différent format:
+* TOML: identifié avec &amp;lsquo;+++&amp;rsquo; qui utilise des =
+* YAML: identifié avec &amp;lsquo;&amp;mdash;&amp;rsquo; qui utilise des :
+* JSON: qui est tout simplement un object JSON&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;FMORR: Ok! À quoi ca sert maintenant?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Les pairs variables-valeurs sont accesible dans les templates. Par exemple on voudrait que le titre du post soit écrit en taille 40 dans la page du post
+et en taille 10 sur la page qui montres tous les posts disponibles&lt;/p&gt;
+
+&lt;p&gt;(todo: ajouter photo)&lt;/p&gt;
+
+&lt;h3 id=&#34;variables-intéressantes&#34;&gt;Variables intéressantes&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;title: Titre du contenu (duh!)&lt;/li&gt;
+&lt;li&gt;description: Description du contenu&lt;/li&gt;
+&lt;li&gt;date: Date utilisé pour trier les posts&lt;/li&gt;
+&lt;li&gt;taxonomies: &lt;a href=&#34;#taxonomies&#34;&gt;Voir prochaines sections&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;draft: Si brouillon normalement on ne veut pas le rendre visible (à moins d&amp;rsquo;avoir des bas standards et que de seulement montrer de quoi qu&amp;rsquo;on est fier est pas dans nos valeurs)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;résumé&#34;&gt;Résumé&lt;/h3&gt;
+
+&lt;p&gt;Par défaut hugo, prend les 70 premiers mots du post et les mets dans la variable summary. Ce que je trouve donne souvent des résultats peu désirable: les premiers mots d&amp;rsquo;un texte
+sont rarement le parfait résumé qu&amp;rsquo;on en ferais. Heureusement, il est possible de le spécifier et en plus il permet d&amp;rsquo;utiliser le formatage HTML!&lt;/p&gt;
+
+&lt;p&gt;Il suffit d&amp;rsquo;ajouter le résumé à la fin du Front Matter et lorsqu&amp;rsquo;on a finit de l&amp;rsquo;écrire on ajoute: &lt;code&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markup&#34;&gt;---
+title : &amp;quot;Legit post&amp;quot;
+tags : [&amp;quot;serious&amp;quot;, &amp;quot;potato&amp;quot;, &amp;quot;pls take me au sérieux&amp;quot;] 
+categories : [&amp;quot;demo&amp;quot;]
+date : &amp;quot;2016-11-17&amp;quot; 
+---
+
+Résumé du post: bla bla bla bla potato bla bla bla bla
+
+&amp;lt;!--more--&amp;gt; 
+
+Reste du texte
+[...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;archetype&#34;&gt;Archetype&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;FMORR : Damn si ca se rapproche tant soit peu d&amp;rsquo;un archnemesis, hugo vient monter d&amp;rsquo;une coche en terme de coolitude&lt;/p&gt;
+
+&lt;p&gt;PM: &amp;hellip; hélas non: le arche devant le mot type signifie seulement que c&amp;rsquo;est le modèle du type. Mais FMI la différence le mot arch devant ennemie provient du grec &amp;ldquo;arkhos&amp;rdquo; qui
+signifie &amp;ldquo;le plus important&amp;rdquo;, et la différence entre un ennemie et un némésis et une référence à la déesse grec de la juste colère et de la rétribution céleste qui est utilisé
+par antonomase pour signifier la force vengeresse. On pourrait dire que plusieurs peuvent vaincre leur ennemie mais peu peuvent échapper leur nemesis! &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bref&amp;hellip;. il permet de déclarer les variables de front matter par défaut pour un type de contenue.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.
+└── archetypes
+    ├── default.md // Le modèle utilisé si pas de modèle plus spécialisé pour un type
+    ├── post.md // Le modèle utilisé pour le type de contenu &amp;quot;post&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;FMORR: Comment utiliser ces valeurs par défaut?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Il suffit d&amp;rsquo;utiliser la commande new de hugo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new [type conteny]/[path]/my-new-content.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;les-thèmes&#34;&gt;Les thèmes&lt;/h1&gt;
+
+&lt;p&gt;Pour accélérer le démarage d&amp;rsquo;un blog il n&amp;rsquo;y a pas mieux que de partir d&amp;rsquo;un thème: il va tout styler ton site pour qu&amp;rsquo;il soit responsive, beau, &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Un des plus grand problème est qu&amp;rsquo;il y a telement de &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;choix&lt;/a&gt;! Et que chacun demande une petite configuration initial.&lt;/p&gt;
+
+&lt;h2 id=&#34;pour-utiliser-un-thème&#34;&gt;Pour utiliser un thème&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;PM: Dans tousles showcase il le rapelle mais juste au cas où!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Télécharger le thème désiré&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd themes
+git clone URL_TO_THEME
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Indiquer à Hugo quel thème utilisé (puisqu&amp;rsquo;on peut en télécharger plusieurs)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;On peut utiliser la ligne de commande&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo -t ThemeName
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ou le set nous même dans le fichier config&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;theme: &amp;quot;ThemeName&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tweek-le-thème&#34;&gt;Tweek le thème&lt;/h2&gt;
+
+&lt;p&gt;Il m&amp;rsquo;est rapidement arrivé que je voulais tweeker un peu le thème. Il serait une mauvaise idée de le modifier directement dans le dossier thème puisque que s&amp;rsquo;il y a une mise
+à jour nos modifications vont être effacé!&lt;/p&gt;
+
+&lt;p&gt;Le principe est donc de remplacer les templates, fichiers statiques ou archetypes à partir du répertoire de base (pas de theme). Si même nom de fichier dans même sous-arboresence
+Hugo va d&amp;rsquo;abord sélectionner le notre.&lt;/p&gt;
+
+&lt;p&gt;Par exemple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/layouts/_default/single.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Va remplacer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/themes/themename/layouts/_default/single.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;template&#34;&gt;Template&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;PM : C&amp;rsquo;est les template qui permet de constuire simplement un site web complexe et riche en ressource.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Il existe 4 types important de template:
+* Single: Pour visualiser un type de contenu
+* List: Pour visualiser plusieurs morceau de contenus (ex: montrer tous les posts)
+* Homepage: Code pour la Home Page du site (&amp;hellip;)
+* Partial: Permet de séparer des morceaux de code et les ré-utiliser à de multiples endroits&lt;/p&gt;
+
+&lt;h1 id=&#34;taxonomies&#34;&gt;Taxonomies&lt;/h1&gt;
+
+&lt;p&gt;Pour faire simple, il s&amp;rsquo;agit une façon de classifié le contenu. Par exemples tags, categories, series sont des taxonomies.&lt;/p&gt;
+
+&lt;h1 id=&#34;les-extras&#34;&gt;Les extras&lt;/h1&gt;
+
+&lt;p&gt;Pour les utilisations plus avancés et les configurations plus poussés.&lt;/p&gt;
+
+&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+
+&lt;p&gt;Il est fort probable qu&amp;rsquo;on désire pouvoir offrir la chance aux lecteurs d&amp;rsquo;écrire leur commentaire constructif, heureusement pour combler le problème qu&amp;rsquo;on n&amp;rsquo;a pas de backend
+Hugo est compatible avec &lt;a href=&#34;https://disqus.com/&#34;&gt;Disqus&lt;/a&gt; un service externe qui ajoute la fonctionnalités de commenter. Il suffit de s&amp;rsquo;inscrire et d&amp;rsquo;ajouter au Front Matter quel
+id de Disqus il doit utiliser.&lt;/p&gt;
+
+&lt;h2 id=&#34;shortcodes&#34;&gt;Shortcodes&lt;/h2&gt;
+
+&lt;p&gt;Puisque le Markdown ne supporte par tout les fonctionnalités qu&amp;rsquo;on voudrait, Hugo offre la possibilité de créer des snippets de code qui va être utilisé lorsqu&amp;rsquo;il va générer l&amp;rsquo;affichage.&lt;/p&gt;
+
+&lt;p&gt;Hugo offre plusieurs shortcode déjà intégré: il suffit de placer ces codes ci-dessous à l&amp;rsquo;intérieur de {{}}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Un tweet de tweeter : &amp;lt; tweet id_tweet &amp;gt;&lt;/li&gt;
+&lt;li&gt;Vidéo youtube: &amp;lt; youtube id_vidéo &amp;gt;&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;utiliser-un-shortcodes&#34;&gt;Utiliser un shortcodes&lt;/h3&gt;
+
+&lt;p&gt;Supposons qu&amp;rsquo;on veut utiliser la shortcode AwsomeShortcode avec les paramètres param1 et param2 dans notre .md on va écrire:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; AwsomeShortcode param1 param2 &amp;gt;}} 
+Autre contenu
+{{&amp;lt; /AwsomeShortcode &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ou bien si les paramètres ont des noms (par exemple nom et titre):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; AwsomeShortcode nom=&amp;quot;param1&amp;quot; titre=&amp;quot;param2&amp;quot; &amp;gt;}}
+Autre contenu
+{{&amp;lt; /AwsomeShortcode &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ps: Il est possible d&amp;rsquo;indiquer que notre contenu soit quand même traité avec Markdown avant d&amp;rsquo;être passé au shortcode: il suffit de changer &lt;code&gt;&amp;lt;&lt;/code&gt; et &lt;code&gt;&amp;gt;&lt;/code&gt; par &lt;code&gt;%&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;écrire-un-shortcodes&#34;&gt;Écrire un shortcodes&lt;/h3&gt;
+
+&lt;p&gt;On écrit un fichier .html placé dans layout/shortcodes. Bien qu&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;un simple fichier html il est possible d&amp;rsquo;accéder à différents types de variables et même d&amp;rsquo;ajouter un peu de logique
+(par exemple si la variable X a été énoncé mettre une bordure avec la couleur de X): ce qui est à l&amp;rsquo;intérieur de &lt;code&gt;{{}}&lt;/code&gt; va être interpréter par Hugo.&lt;/p&gt;
+
+&lt;p&gt;On peut accéder à plusieurs variables:
+* Les paramètres
+** Par numéro selon ordre déclaration: &lt;code&gt;{{ .Get 0}}&lt;/code&gt;
+** Par nom &lt;code&gt;{{ .Get &amp;quot;titre&amp;quot; }}&lt;/code&gt;
+* &lt;a href=&#34;https://gohugo.io/templates/variables/&#34;&gt;Varibles de la page&lt;/a&gt;
+** Avec : &lt;code&gt;{{ .Page.[variable name] }}&lt;/code&gt;
+* Et le contenu déclarer à l&amp;rsquo;intérieur du shortcodes
+** Avec : &lt;code&gt;{{ .Inner }}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;table-des-matières&#34;&gt;Table des matières&lt;/h2&gt;
+
+&lt;p&gt;Une des fonctionnalités de Hugo que j&amp;rsquo;ai découvert un peu plus tard et qui m&amp;rsquo;aurait épargné du travail est que Hugo est capable de détecter les titres et sous-titres d&amp;rsquo;un post
+et de généré la table des matières. Si on écrit un template il faut indiquer qu&amp;rsquo;on utilise la variable &lt;code&gt;.TableOfContents&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;markdown&#34;&gt;Markdown&lt;/h2&gt;
+
+&lt;p&gt;Le markdown à pour but de simplifier l&amp;rsquo;écriture d&amp;rsquo;un post: il permet de définir comment afficher l&amp;rsquo;information&lt;/p&gt;
+
+&lt;p&gt;Hugo utilise &lt;a href=&#34;https://github.com/russross/blackfriday&#34;&gt;Blackfriday&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;annexe&#34;&gt;Annexe&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;PM: Rappel toi FMORR que la &lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;documentation de hugo&lt;/a&gt; est lui même un blog hugo dont on peut regarder le &lt;a href=&#34;https://github.com/spf13/hugo/tree/master/docs&#34;&gt;code source&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;*[antonomase] : Figure de style qui consiste à utilisé un nom propre est utilisé comme un nom commun: par exemple un atlas provient en fait de Atlas un géant de la mythologie grecque qui devait porter le monde sur ses épaules&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;&lt;a href=&#34;http://www.dailywritingtips.com/on-the-use-of-nemesis/&#34;&gt;Difference ennemie, némésis et arch&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
